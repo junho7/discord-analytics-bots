@@ -1,0 +1,128 @@
+const functions = require("./functions");
+
+// import functions from "./functions";
+
+// console.log("functions: ", functions);
+
+// const discordid = "505759243287265295" // lalaland
+const discordid = "968257565295259748" // 9d04
+// const discordid = "967683190401695764" // api-test bot
+
+const channel_id = '968203221669670913' //api-test
+// const channel_id = '771521903998271488' //Index Coop > introductions channel
+
+const test_role_1_id = '969044195232866385' //Test Role 1
+// const test_role_1_id = '969087163302047804' //Newbie
+
+// const fetchMember = async () => {
+//   const res = await functions.fetchMember(discordid);
+//   console.log('fetchMember: ', res)
+// };
+// fetchMember();
+
+// const fetchUser = async () => {
+//   const res = await functions.fetchUser(discordid);
+//   console.log('fetchUser: ', res)
+// };
+// fetchUser();
+
+// const getRoles = async () => {
+//   const res = await functions.getRoles(discordid);
+//   console.log('getRoles: ', res)
+// };
+// getRoles();
+
+// const addRole = async () => {
+//   const res = await functions.addRole(discordid, guild=undefined, roleid=test_role_1_id);
+//   console.log('addRole: ', res)
+// };
+// addRole();
+
+// const removeRole = async () => {
+//   const res = await functions.removeRole(discordid, guild=undefined, role_id=test_role_1_id);
+//   console.log('removeRole: ', res)
+// };
+// removeRole();
+
+// const createGuildChannel = async () => {
+//   const res = await functions.createGuildChannel(guild=undefined);
+//   console.log('createGuildChannel: ', res)
+// };
+// createGuildChannel();
+
+// only for threads. not the message. can't see the content of the message
+// const listActiveThreads = async () => {
+//   const res = await functions.listActiveThreads(guild=undefined);
+//   console.log('listActiveThreads: ', res)
+// };
+// listActiveThreads();
+
+// Not working
+// const addGuildMember = async () => {
+//   const res = await functions.addGuildMember(discordid, guild=undefined);
+//   console.log('addGuildMember: ', res)
+// };
+// addGuildMember();
+
+// const modifyGuildMember = async () => {
+//   const res = await functions.modifyGuildMember(discordid, guild=undefined);
+//   console.log('modifyGuildMember: ', res)
+// };
+// modifyGuildMember();
+
+// const removeGuildMember = async () => {
+//   const res = await functions.removeGuildMember(discordid, guild=undefined);
+//   console.log('removeGuildMember: ', res)
+// };
+// removeGuildMember();
+
+// const getGuildInvites = async () => {
+//   const res = await functions.getGuildInvites(guild=undefined);
+//   console.log('getGuildInvites: ', res)
+// };
+// getGuildInvites();
+
+
+// const listGuildMember = async () => {
+//   const res = await functions.listGuildMembers(guild=undefined);
+//   console.log('listGuildMember: ', res)
+// };
+// listGuildMember();
+
+// const getGuildRole = async () => {
+//   const res = await functions.getGuildRole(guild=undefined);
+//   console.log('getGuildRole: ', res)
+// };
+// getGuildRole();
+
+// const createGuildRole = async () => {
+//   // 1: create invite
+//   // 32: Manage Server
+//   const res = await functions.createGuildRole(guild=undefined, permissions=32);
+//   console.log('createGuildRole: ', res)
+// };
+// createGuildRole();
+
+const modifyGuildRole = async () => {
+  //permission
+  // 1: create invite
+  // 32: Manage Server
+  //role
+  // 969589572386304000: create invite
+  // 969044195232866385: Test Role 1
+  const res = await functions.modifyGuildRole(guild=undefined, roleid='969044195232866385', permissions=1040);
+  console.log('modifyGuildRole: ', res)
+};
+modifyGuildRole();
+
+// const getChannelMessages = async () => {
+//   const res = await functions.getChannelMessages(channel=channel_id);
+//   console.log('getChannelMessages: ', res)
+// };
+// getChannelMessages();
+
+// const createMessage = async () => {
+//   const res = await functions.createMessage(channel=channel_id, "Hello world!");
+//   console.log('createMessage: ', res)
+// };
+// createMessage();

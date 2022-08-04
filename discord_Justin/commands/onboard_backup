@@ -1,0 +1,35 @@
+const { SlashCommandBuilder } = require("@discordjs/builders");
+const { clientId, guildId, bearerToken } = require("../config.js");
+const site = require("../config");
+const axios = require("axios");
+const {
+  Permissions,
+  MessageActionRow,
+  MessageButton,
+  MessageEmbed,
+  Client,
+  Intents,
+} = require("discord.js");
+
+const wait = require("node:timers/promises").setTimeout;
+
+const { execute } = require("../common_commands");
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("onboarding")
+    .setDescription("onboarding a new member")
+    .setDefaultPermission(false)
+    .addUserOption((option) =>
+      option
+        .setName("user")
+        .setRequired(true)
+        .setDescription("select a new member for onboarding")
+    ),
+    async execute(interaction){
+      // await interaction.reply({content: `Onboarding started.`, ephemeral: true, defaultPermission: false });
+      // console.log('interaction.client ', interaction.client)
+      // console.log('interaction.options.getUser.id', interaction.options.getUser('user').id)
+      execute(interaction.client, interaction.member)
+    },
+}

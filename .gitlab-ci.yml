@@ -1,0 +1,21 @@
+stages:
+  - build
+  - deploy
+
+main_build:
+  stage: build
+  only:
+    - main
+  script:
+    - cp -rf ./* ~/main/oxygen-discord/
+    - cd ~/main/oxygen-discord
+    - pip3 install -r requirements.txt
+
+main_deploy:
+  stage: deploy
+  only:
+    - main
+  script:
+    - cd ~/main/oxygen-discord
+    - pm2 delete discord_analytics
+    - pm2 start ./discord_analytics/main.py --name discord_analytics -x --interpreter python3

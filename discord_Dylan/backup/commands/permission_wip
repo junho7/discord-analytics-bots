@@ -1,0 +1,78 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('permission')
+		.setDescription('Manage permission'),
+		name: 'start',
+		description: 'starts the conversation between the user and the bot',
+		usage: '!start',
+		async execute(interaction) {
+
+			console.log('interaction: ', interaction)
+			// const filter = m => m.content.includes('discord');
+			const filter = m => m.author.id === interaction.user.id;
+const collector = interaction.channel.createMessageCollector({ filter, time: 15000 });
+
+collector.on('collect', m => {
+    console.log(`Collected ${m.content}`);
+});
+
+collector.on('end', collected => {
+    console.log(`Collected ${collected.size} items`);
+});
+			// const questions = [
+			// 	'1',
+			// 	'2',
+			// 	'3',
+			// 	'4',
+			// 	'5',
+			// 	'6',
+			// 	'7',
+			// 	'8',
+			// 	'9',
+			// ];
+	
+			// const answers = [];
+			// let current = 0;
+	
+			// try {
+			// 	message.delete({ timeout: 1000 });
+			// 	if (message.channel.id !== ch) return;
+	
+			// 	const dude = message.guild.members.cache.get(message.author.id);
+	
+			// 	if (!dude.roles.cache.has(role)) return;
+	
+			// 	message.author.send('just hang on a sec:clock3:');
+	
+			// 	const filter = (m) => m.author.id === message.author.id;
+			// 	const dm = await message.author.send(questions[current++]);
+	
+			// 	const collector = dm.channel.createMessageCollector(filter, {
+			// 		max: questions.length,
+			// 	});
+	
+			// 	collector.on('collect', (msg) => {
+			// 		const currentQuestion = questions[current++];
+	
+			// 		answers.push(msg.content);
+			// 		console.log({ answers });
+	
+			// 		if (currentQuestion) {
+			// 			message.author.send(currentQuestion);
+			// 		}
+			// 	});
+	
+			// 	collector.on('end', (collected, reason) => {
+			// 		if (reason === 'limit') {
+			// 			message.author.send(
+			// 				`Cheers ${message.author}, that's all for today.`,
+			// 			);
+			// 		}
+			// 	});
+			// } catch (error) {
+			// 	console.log(error);
+			// }
+		},
+};
